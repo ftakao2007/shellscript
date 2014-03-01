@@ -16,12 +16,19 @@ if [ $? -eq 0 ]; then
   sysctl -p
 fi
 
-### unable to resolve host
+### unable to resolve host (sudo)
 ### http://www.plustar.jp/lab/blog/?p=9260
 grep "127.0.1.1" /etc/hosts 1>/dev/null 2>/dev/null
 if [ $? -ne 0 ]; then
   echo "127.0.1.1 `uname -n`" >> /etc/hosts
 fi
+
+### perl: warning: Setting locale failed.
+### http://qiita.com/d6rkaiz/items/c32f2b4772e25b1ba3ba
+export LANG=en_US.UTF-8
+export LC_ALL=$LANG
+locale-gen --purge $LANG
+dpkg-reconfigure -f noninteractive locales && /usr/sbin/update-locale LANG=$LANG
 
 ### STOP Ajaxterm
 ### http://kaju.jp/2011/01/post-1508.php
@@ -36,4 +43,3 @@ if [ $? -eq 0 ]; then
   #echo $ajaxterm_pid
   kill -9 $ajaxterm_pid
 fi
-
