@@ -32,8 +32,9 @@ dpkg-reconfigure -f noninteractive locales && /usr/sbin/update-locale LANG=$LANG
 
 ### STOP Ajaxterm
 ### http://kaju.jp/2011/01/post-1508.php
-which ajaxterm 1>/dev/null 2>/dev/null
-if [ $? -eq 0 ]; then
+#which ajaxterm 1>/dev/null 2>/dev/null
+#if [ $? -eq 0 ]; then
+if which ajaxterm > /dev/null; then
   apt-get remove -y ajaxterm
 fi
 
