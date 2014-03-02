@@ -16,13 +16,20 @@ rbenv init -
 cat <<\__EOT__ >> ~/.bashrc
 export RBENV_ROOT=/usr/local/rbenv
 export PATH=${RBENV_ROOT}/bin:${PATH}
-__EOT__
-
-cat <<\__EOT__ >> ~/.profile
-export RBENV_ROOT="/usr/local/rbenv"
-export PATH="${RBENV_ROOT}/bin:${PATH}"
 eval "$(rbenv init -)"
 __EOT__
+
+# cat <<\__EOT__ >> ~/.profile
+# export RBENV_ROOT="/usr/local/rbenv"
+# export PATH="${RBENV_ROOT}/bin:${PATH}"
+# eval "$(rbenv init -)"
+# __EOT__
+
+# cat <<\__EOT__ >> ~/.bash_profile
+# export RBENV_ROOT="/usr/local/rbenv"
+# export PATH="${RBENV_ROOT}/bin:${PATH}"
+# eval "$(rbenv init -)"
+# __EOT__
 
 #exec ${SHELL} -l
 #rbenv install -l
