@@ -6,6 +6,9 @@ if [ $? -ne 0 ]; then
  exit
 fi
 
+### http://unicus.jp/skmk/archives/771
+apt-get install -y zlib1g-dev build-essential libssl-dev libreadline-dev
+
 ruby_version=$1
 if [ -z $ruby_version ]; then
   ruby_version=2.1.1

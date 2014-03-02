@@ -25,4 +25,5 @@ eval "$(rbenv init -)"
 __EOT__
 
 #exec ${SHELL} -l
-rbenv install -v
+#rbenv install -l
+rbenv -v

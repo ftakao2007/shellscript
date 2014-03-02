@@ -7,8 +7,9 @@ Ubuntu12.04.4LTSの構築スクリプト
 apt-get update
 apt-get upgrade
 
-apt-get install git
+apt-get install -y git
 git clone https://github.com/ftakao2007/build.git
+echo "set encoding=utf-8 >> ~/.vimrc"
 cd build/Ubuntu12.04.4LTS/
 ./001_init.sh [git_user] [git_email] [server_user]
 ```
