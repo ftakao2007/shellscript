@@ -34,3 +34,4 @@ __EOT__
 #exec ${SHELL} -l
 #rbenv install -l
 rbenv -v
+echo "source ~/.bashrc"
