@@ -6,10 +6,8 @@
 
 ### Create DB
 sql_config="201_mysql_redmine.sql"
-#mysql_redmine_user="redmine"
-#mysql_redmine_db="redmine"
-mysql_redmine_user="michibayashi"
-mysql_redmine_db="michibayashi"
+mysql_redmine_user="redmine"
+mysql_redmine_db="redmine"
 if [ -z "$mysql_redmine_db_password" ]; then
   echo "mysql redmine DB password?"
   read mysql_redmine_db_password
