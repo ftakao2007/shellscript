@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### http://www.jp-z.jp/changelog/2012-06-25-1.html
-#apt-get -y install mysql-server mysql-client libmysqld-dev
+apt-get -y install mysql-server mysql-client libmysqld-dev
 
 
 ### Create DB
