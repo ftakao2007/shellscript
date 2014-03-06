@@ -2,7 +2,8 @@
 
 apt-get update
 apt-get upgrade
-apt-get install -y nkf git
+apt-get install -y nkf git dnsutils
+# dnsutils -> for host command
 
 # git_user="ftakao2007"
 git_user=$1
