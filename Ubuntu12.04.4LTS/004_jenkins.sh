@@ -1,12 +1,12 @@
 #!/bin/sh
 # http://qiita.com/hisatake/items/89a1e1c9a3001ba23e92
 
-SERVERADMIN="MAILADDRESS"
-SERVERNAME="FQDN"
+SERVERADMIN="XXX"
+SERVERNAME="XXX"
 VHOSTSETTINGPATH="/etc/apache2/sites-available"
 VHOST="dtivps-server"
 APACHEUSER="tafukui"
-APACHEPASSWD=""APACHEPASSWORD
+APACHEPASSWD="XXX"
 HTPASSWDFILE="/etc/apache2/.htpasswd"
 
 apt-get install -y jenkins
@@ -60,20 +60,21 @@ sudo a2enmod proxy_http
 #service jenkins restart 
 #service apache2 restart 
 
-wget -O default.js http://updates.jenkins-ci.org/update-center.json
-sed '1d;$d' default.js > default.json
-mkdir /var/lib/jenkins/updates
-mv default.json /var/lib/jenkins/updates/
-chown -R jenkins:nogroup /var/lib/jenkins/updates
-#service jenkins restart
+# wget -O default.js http://updates.jenkins-ci.org/update-center.json
+# sed '1d;$d' default.js > default.json
+# mkdir /var/lib/jenkins/updates
+# mv default.json /var/lib/jenkins/updates/
+# chown -R jenkins:nogroup /var/lib/jenkins/updates
+# #service jenkins restart
 
-cd /user/sahre/jenkins
-mv jenkins.war ~/
-wget http://updates.jenkins-ci.org/download/war/1.511/jenkins.war
+cd /usr/share/jenkins/
+mv jenkins.war jenkins.war.org
+#wget http://updates.jenkins-ci.org/download/war/1.511/jenkins.war
+wget http://updates.jenkins-ci.org/download/war/1.532.2/jenkins.war
 service jenkins restart
 service apache2 restart 
 
-STOPUPDATEJENKINS=`dpkg-query --list|grep jenkins | grep iF | awk '{print $3}'`
+STOPUPDATEJENKINS=`dpkg-query --list|grep jenkins | grep -v libjenkins | awk '{print $3}' | sort | uniq`
 
 cat <<__EOT__ > /etc/apt/preferences.d/jenkins
 Package: jenkins
