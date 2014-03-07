@@ -81,3 +81,6 @@ Package: jenkins
 Pin: version ${STOPUPDATEJENKINS}
 Pin-Priority: 99
 __EOT__
+
+# http://madroom-project.blogspot.jp/2012/12/ubuntu-1204jenkinsapache80.html
+# charactor setting
