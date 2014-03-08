@@ -85,11 +85,11 @@ sudo a2enmod proxy_http
 #service jenkins restart 
 #service apache2 restart 
 
-# wget -O default.js http://updates.jenkins-ci.org/update-center.json
-# sed '1d;$d' default.js > default.json
-# mkdir /var/lib/jenkins/updates
-# mv default.json /var/lib/jenkins/updates/
-# chown -R jenkins:nogroup /var/lib/jenkins/updates
+wget -O default.js http://updates.jenkins-ci.org/update-center.json
+sed '1d;$d' default.js > default.json
+mkdir /var/lib/jenkins/updates
+mv default.json /var/lib/jenkins/updates/
+chown -R jenkins:nogroup /var/lib/jenkins/updates
 # #service jenkins restart
 
 # http://jenkins-ci.org/stable-rc
