@@ -1,38 +1,42 @@
 #!/bin/sh
 
+cat << __EOT__
+input number
+0) init only
+1) with jenkins
+__EOT__
+read install_flg
+
+# case num in
+#   1) install_flg=0 ;;
+#   2) install_flg=1 ;;
+#   *) echo "abort." ;;  
+# esac
+
 apt-get update
 apt-get upgrade
 apt-get install -y nkf git dnsutils
 # dnsutils -> for host command
 
-# git_user="ftakao2007"
-git_user=$1
+# COMMOM_USER="ftakao2007"
+COMMOM_USER=$1
 
-if [ -z "$git_user" ]; then
- echo "git_user?"
- read git_user
-fi 
+# COMMOM_EMAIL="ftakao2007@gmail.com"
+COMMOM_EMAIL=$2
 
-# git_email="ftakao2007@gmail.com"
-git_email=$2
-if [ -z "$git_email" ]; then
- echo "git_email?"
- read git_email
-fi
-
-# server_user="tafukui"
-server_user=$3
-if [ -z "$server_user" ]; then
- echo "server_user?"
- read server_user
-fi
-
+# INIT_PASSWD="hoge"
+INIT_PASSWD=$3
 
 ### DTI VPS setting
-./009_dtivps_init.sh
-
-### git setting
-./002_git.sh ${git_user} ${git_email}
+./099_dtivps_init.sh
 
 ### server user add
-./011_useradd.sh ${server_user}
+./098_useradd.sh ${COMMOM_USER}
+
+### git setting
+./101_git.sh ${COMMOM_USER} ${COMMOM_EMAIL}
+
+if [ ${install_flg} = "1" ]; then
+  ### jenkins install
+  ./002_jenkins.sh ${COMMOM_USER} ${COMMOM_EMAIL} ${INIT_PASSWD}
+fi
