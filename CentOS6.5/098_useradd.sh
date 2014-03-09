@@ -14,7 +14,7 @@ if ! grep $server_user /etc/passwd 1> /dev/null; then
  server_user_home="/home/${server_user}"
 
  if [ "${os_flug}" = "CentOS" ]; then
-   useradd ${server_user}
+   useradd -G wheel ${server_user}
  else 
    useradd -G sudo ${server_user}
  fi

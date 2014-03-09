@@ -28,13 +28,13 @@ else
   # dnsutils -> for host command
 fi
 
-# COMMOM_USER="ftakao2007"
+# COMMOM_USER="hoge_user"
 COMMOM_USER=$1
 
-# COMMOM_EMAIL="ftakao2007@gmail.com"
+# COMMOM_EMAIL="hoge_user@gmail.com"
 COMMOM_EMAIL=$2
 
-# INIT_PASSWD="hoge"
+# INIT_PASSWD="hogehoge"
 INIT_PASSWD=$3
 
 ### DTIVPS ubuntu12.04 or vagrant centos6.5 setting
