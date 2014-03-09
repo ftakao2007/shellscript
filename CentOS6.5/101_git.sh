@@ -32,6 +32,4 @@ if ! grep $GIT_EMAIL ~/.ssh/id_rsa.pub 1> /dev/null 2> /dev/null; then
  echo "----------------------------------------------"
 fi
 
-if [ "${os_flug}" = "CentOS" ]; then
-  git remote set-url origin https://${GIT_USER}@github.com/ftakao2007/build.git
-fi
+git remote set-url origin https://${GIT_USER}@github.com/ftakao2007/build.git
