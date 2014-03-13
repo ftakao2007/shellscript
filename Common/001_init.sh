@@ -48,6 +48,10 @@ INIT_PASSWD=$3
 
 
 if [ ${install_flg} = "1" ]; then
-  ### jenkins install
-  ./002_jenkins.sh ${COMMOM_USER} ${COMMOM_EMAIL} ${INIT_PASSWD}
+  if [ "${os_flug}" = "CentOS" ]; then
+    ###
+  else
+    ### jenkins install
+    ./002_jenkins_ubuntu12.04.4lts.sh ${COMMOM_USER} ${COMMOM_EMAIL} ${INIT_PASSWD}
+  fi
 fi
