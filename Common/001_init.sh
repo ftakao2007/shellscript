@@ -3,13 +3,13 @@
 ### OS flug
 os_flug=`awk '{print $1}' /etc/issue | head -1`
 
-### With soft
-cat << __EOT__
-input number
-0) init only
-1) with jenkins
-__EOT__
-read install_flg
+# ### With soft
+# cat << __EOT__
+# input number
+# 0) init only
+# 1) with jenkins
+# __EOT__
+# read install_flg
 
 #### case num in
 #   1) install_flg=0 ;;
@@ -47,11 +47,11 @@ INIT_PASSWD=$3
 ./101_git.sh ${COMMOM_USER} ${COMMOM_EMAIL}
 
 
-if [ ${install_flg} = "1" ]; then
-  if [ "${os_flug}" = "CentOS" ]; then
-    ###
-  else
-    ### jenkins install
-    ./002_jenkins_ubuntu12.04.4lts.sh ${COMMOM_USER} ${COMMOM_EMAIL} ${INIT_PASSWD}
-  fi
-fi
+#if [ ${install_flg} = "1" ]; then
+#  if [ "${os_flug}" = "CentOS" ]; then
+#    ###
+#  else
+#    ### jenkins install
+#    ./002_jenkins_ubuntu12.04.4lts.sh ${COMMOM_USER} ${COMMOM_EMAIL} ${INIT_PASSWD}
+#  fi
+#fi
