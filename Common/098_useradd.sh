@@ -18,7 +18,11 @@ if ! grep $server_user /etc/passwd 1> /dev/null; then
  else 
    useradd -G sudo ${server_user}
  fi
- mkdir $server_user_home
+
+ if [ ! -d "${server_user_home}" ]; then
+   mkdir $server_user_home
+ fi 
+
  echo " ### input ${server_user} password ###"
  passwd  ${server_user}
  
